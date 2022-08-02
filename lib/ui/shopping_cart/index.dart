@@ -18,6 +18,13 @@ class ShoppingCartPage extends StatelessWidget {
       78000, 11000, 6000, 149000, 200000,
     ];
 
+    final List<String> pictures = [
+      'assets/shoe1.png', 'assets/shoe2.jpg', 'assets/shoe3.jpg',
+      'assets/shoe1.png', 'assets/shoe2.jpg', 'assets/shoe3.jpg',
+      'assets/shoe1.png', 'assets/shoe2.jpg', 'assets/shoe3.jpg',
+      'assets/shoe1.png', 'assets/shoe2.jpg',
+    ];
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -33,12 +40,20 @@ class ShoppingCartPage extends StatelessWidget {
           return Card(
             child: ListTile(
               title: Text(items[index]),
-              leading: const Icon(Icons.image, size: 56.0,),
+              leading: Image.asset(
+                pictures[index], 
+                height: 56.0,
+                width: 56.0,
+                fit: BoxFit.cover,
+              ),
               subtitle: Text(
                 'Rp${prices[index]}', 
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
-              trailing: const Icon(Icons.delete),
+              trailing: IconButton(
+                icon: const Icon(Icons.delete),
+                onPressed: () {},
+              ),
             ),
           );
         },
@@ -47,3 +62,45 @@ class ShoppingCartPage extends StatelessWidget {
   }
 }
 
+class ShoppingCartItemQty extends StatefulWidget {
+  const ShoppingCartItemQty({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<ShoppingCartItemQty> createState() => _ShoppingCartItemQtyState();
+}
+
+class _ShoppingCartItemQtyState extends State<ShoppingCartItemQty> {
+  int _qty = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: const BoxConstraints(maxWidth: 180),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: () {},
+          ),
+          // SizedBox(width: 12),
+          IconButton(
+            icon: const Icon(Icons.remove),
+            onPressed: () {
+              setState(() { if (_qty > 1) _qty--; });
+            },
+          ),
+          Text('$_qty'),
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              setState(() { _qty++; });
+            },
+          ),
+        ],
+      )
+    );
+  }
+}
