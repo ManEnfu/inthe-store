@@ -47,14 +47,7 @@ class CatalogPage extends StatelessWidget {
             icon: const Icon(Icons.shopping_cart), 
             tooltip: 'Shopping Cart', 
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return const ShoppingCartPage();
-                  },
-                )
-              );
+              Navigator.pushNamed(context, '/shopping_cart');
             },
           ),
         ]
@@ -83,14 +76,7 @@ class CatalogProductCard extends StatelessWidget {
     return Card(
       child: InkWell(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (BuildContext context) {
-                return ProductDetailPage(product: product);
-              },
-            )
-          );
+          Navigator.pushNamed(context, '/product_detail', arguments: product);
         },
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -134,14 +120,7 @@ class CatalogProductCard extends StatelessWidget {
                             backgroundColor: Colors.tealAccent.shade700,
                           ),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (BuildContext context) {
-                                  return const ShoppingCartPage();
-                                },
-                              )
-                            );
+                            Navigator.pushNamed(context, '/shopping_cart');
                           },
                         )
                       ),

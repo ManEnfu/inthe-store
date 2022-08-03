@@ -16,7 +16,13 @@ class StoreApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: const CatalogPage(),
+      routes: {
+        '/': (context) => const CatalogPage(),
+        '/shopping_cart': (context) => const ShoppingCartPage(),
+        '/product_detail': (context) => ProductDetailPage(
+          product: ModalRoute.of(context)?.settings.arguments as Product
+        ),
+      },
     );
   }
 }

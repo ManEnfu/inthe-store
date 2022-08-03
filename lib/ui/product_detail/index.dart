@@ -80,14 +80,7 @@ class ProductDetailPage extends StatelessWidget {
               backgroundColor: Colors.tealAccent.shade700,
             ),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return const ShoppingCartPage();
-                  },
-                )
-              );
+              Navigator.pushNamed(context, '/shopping_cart');
             },
           )
         ),
