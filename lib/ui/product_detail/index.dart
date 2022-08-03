@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inthe_store/models/product.dart';
+import 'package:inthe_store/ui/shopping_cart/index.dart';
 
 class ProductDetailPage extends StatelessWidget {
   const ProductDetailPage({
@@ -16,7 +17,9 @@ class ProductDetailPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back), 
           tooltip: 'Back', 
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: const Text('Product Details')
       ),
@@ -76,7 +79,16 @@ class ProductDetailPage extends StatelessWidget {
               primary: Colors.white,
               backgroundColor: Colors.tealAccent.shade700,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return const ShoppingCartPage();
+                  },
+                )
+              );
+            },
           )
         ),
       ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:inthe_store/models/product.dart';
+import 'package:inthe_store/ui/product_detail/index.dart';
+import 'package:inthe_store/ui/shopping_cart/index.dart';
 
 class CatalogPage extends StatelessWidget {
   const CatalogPage({
@@ -43,10 +44,19 @@ class CatalogPage extends StatelessWidget {
         title: const Text('Catalog'),
         actions: [
           IconButton(
-              icon: const Icon(Icons.shopping_cart), 
-              tooltip: 'Shopping Cart', 
-              onPressed: () {},
-            ),
+            icon: const Icon(Icons.shopping_cart), 
+            tooltip: 'Shopping Cart', 
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return const ShoppingCartPage();
+                  },
+                )
+              );
+            },
+          ),
         ]
       ),
       body: ListView.builder(
@@ -72,7 +82,16 @@ class CatalogProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return ProductDetailPage(product: product);
+              },
+            )
+          );
+        },
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -114,7 +133,16 @@ class CatalogProductCard extends StatelessWidget {
                             primary: Colors.white,
                             backgroundColor: Colors.tealAccent.shade700,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return const ShoppingCartPage();
+                                },
+                              )
+                            );
+                          },
                         )
                       ),
                     ],

@@ -29,7 +29,9 @@ class ShoppingCartPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back), 
           tooltip: 'Back', 
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: const Text('Shopping Cart')
       ),
