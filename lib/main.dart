@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:inthe_store/models/product.dart';
+import 'package:inthe_store/models/cart.dart';
+
 import 'package:inthe_store/ui/product_detail/index.dart';
 import 'package:inthe_store/ui/shopping_cart/index.dart';
 import 'package:inthe_store/ui/catalog/index.dart';
@@ -30,7 +34,12 @@ class StoreApp extends StatelessWidget {
 
 void main() {
   // Jalankan StoreApp
-  runApp(const StoreApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => Cart(), 
+      child: const StoreApp()
+    ),
+  );
 }
 
 

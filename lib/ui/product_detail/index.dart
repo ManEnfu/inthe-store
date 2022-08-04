@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:inthe_store/models/product.dart';
+import 'package:inthe_store/models/cart.dart';
 
 class ProductDetailPage extends StatelessWidget {
   const ProductDetailPage({
@@ -79,6 +82,8 @@ class ProductDetailPage extends StatelessWidget {
               backgroundColor: Colors.tealAccent.shade700,
             ),
             onPressed: () {
+              Provider.of<Cart>(context, listen: false)
+                .addToCart(product);
               Navigator.pushNamed(context, '/shopping_cart');
             },
           )
