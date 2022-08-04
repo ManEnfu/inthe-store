@@ -40,26 +40,74 @@ class ShoppingCartPage extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           return Card(
-            child: ListTile(
-              title: Text(items[index].name),
-              leading: Image.asset(
-                items[index].image, 
-                height: 56.0,
-                width: 56.0,
-                fit: BoxFit.cover,
-              ),
-              subtitle: Text(
-                'Rp${items[index].price}', 
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-              trailing: IconButton(
-                icon: const Icon(Icons.delete),
-                onPressed: () {},
-              ),
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text(
+                    items[index].name,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                  ),
+                  leading: Image.asset(
+                    items[index].image, 
+                    height: 56.0,
+                    width: 56.0,
+                    fit: BoxFit.cover,
+                  ),
+                  subtitle: Text(
+                    'Rp${items[index].price}', 
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                const ShoppingCartItemQty(),
+              ]
             ),
           );
         },
       ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(color: Colors.tealAccent.shade400),
+          )
+        ),
+        child: ListTile(
+          title: const Text(
+                'Total Price',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.black,
+                )
+              ),
+          subtitle: const Text(
+                'Rp100000',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+          trailing: ConstrainedBox(
+            constraints: const BoxConstraints(
+              minWidth: 150,
+            ),
+            child: TextButton(
+              child: const Text('Checkout'),
+              style: TextButton.styleFrom(
+                primary: Colors.white,
+                backgroundColor: Colors.tealAccent.shade700,
+              ),
+              onPressed: () {},
+            ),
+          )
+        )
+      )
     );
   }
 }
@@ -78,31 +126,28 @@ class _ShoppingCartItemQtyState extends State<ShoppingCartItemQty> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      constraints: const BoxConstraints(maxWidth: 180),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: () {},
-          ),
-          // SizedBox(width: 12),
-          IconButton(
-            icon: const Icon(Icons.remove),
-            onPressed: () {
-              setState(() { if (_qty > 1) _qty--; });
-            },
-          ),
-          Text('$_qty'),
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () {
-              setState(() { _qty++; });
-            },
-          ),
-        ],
-      )
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        IconButton(
+          icon: const Icon(Icons.delete),
+          onPressed: () {},
+        ),
+        // SizedBox(width: 12),
+        IconButton(
+          icon: const Icon(Icons.remove),
+          onPressed: () {
+            setState(() { if (_qty > 1) _qty--; });
+          },
+        ),
+        Text('$_qty'),
+        IconButton(
+          icon: const Icon(Icons.add),
+          onPressed: () {
+            setState(() { _qty++; });
+          },
+        ),
+      ],
     );
   }
 }

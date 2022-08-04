@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:inthe_store/models/product.dart';
-import 'package:inthe_store/ui/shopping_cart/index.dart';
 
 class ProductDetailPage extends StatelessWidget {
   const ProductDetailPage({

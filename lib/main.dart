@@ -15,6 +15,7 @@ class StoreApp extends StatelessWidget {
       title: 'InThe Store', // Judul bebas
       theme: ThemeData(
         primarySwatch: Colors.teal,
+        fontFamily: 'Ubuntu',
       ),
       routes: {
         '/': (context) => const CatalogPage(),
