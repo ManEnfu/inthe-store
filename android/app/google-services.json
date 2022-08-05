@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "591848745674",
+    "project_id": "inthe-store",
+    "storage_bucket": "inthe-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591848745674:android:7a1b667e1387f9e0dea233",
+        "android_client_info": {
+          "package_name": "com.example.inthe_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591848745674-16c0kn28sebmnojhohu2cc4kor34e1ve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6ULp8sApsJSun2uEsAaJr8bMaXBFuCrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591848745674-16c0kn28sebmnojhohu2cc4kor34e1ve.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

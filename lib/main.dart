@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 import 'package:inthe_store/models/product.dart';
 import 'package:inthe_store/models/cart.dart';
 
@@ -14,6 +17,8 @@ class StoreApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    getProductsFromFirebase();
 
     return MaterialApp(
       title: 'InThe Store', // Judul bebas
@@ -32,7 +37,11 @@ class StoreApp extends StatelessWidget {
   }
 }
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   // Jalankan StoreApp
   runApp(
     ChangeNotifierProvider(
