@@ -10,6 +10,7 @@ import 'package:inthe_store/models/cart.dart';
 import 'package:inthe_store/ui/product_detail/index.dart';
 import 'package:inthe_store/ui/shopping_cart/index.dart';
 import 'package:inthe_store/ui/catalog/index.dart';
+import 'package:inthe_store/ui/checkout/index.dart';
 
 // Widget utama
 class StoreApp extends StatelessWidget {
@@ -17,9 +18,6 @@ class StoreApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    getProductsFromFirebase();
-
     return MaterialApp(
       title: 'InThe Store', // Judul bebas
       theme: ThemeData(
@@ -30,8 +28,9 @@ class StoreApp extends StatelessWidget {
         '/': (context) => const CatalogPage(),
         '/shopping_cart': (context) => const ShoppingCartPage(),
         '/product_detail': (context) => ProductDetailPage(
-          product: ModalRoute.of(context)?.settings.arguments as Product
+          product: ModalRoute.of(context)?.settings.arguments as Product,
         ),
+        '/checkout': (context) => const CheckoutPage(),
       },
     );
   }

@@ -16,13 +16,23 @@ class Product {
   String image;
 }
 
-void getProductsFromFirebase() async {
-  FirebaseFirestore.instance
+Future<List<Product>> getProductsFromFirebase() async {
+  return FirebaseFirestore.instance
     .collection('products')
     .get()
     .then((QuerySnapshot q) {
-      for (var doc in q.docs) {
-        print("${doc.id} => ${doc.data()}");
-      }   
+      return List<Product>.generate(
+        q.docs.length,
+        (index) {
+          DocumentSnapshot doc = q.docs[index];
+          return Product(
+            id: doc.id,
+            name: doc['name'] as String,
+            description: doc['description'] as String,
+            price: doc['price'] as int,
+            image: doc['image'] as String,
+          );
+        }
+      );
     });
 }

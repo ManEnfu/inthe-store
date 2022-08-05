@@ -40,7 +40,7 @@ class ShoppingCartPage extends StatelessWidget {
                           color: Colors.black,
                         ),
                       ),
-                      leading: Image.asset(
+                      leading: Image.network(
                         cart.items[index].product.image, 
                         height: 56.0,
                         width: 56.0,
@@ -157,7 +157,9 @@ class ShoppingCartTotal extends StatelessWidget {
                     : Colors.grey.shade400,
                 ),
                 onPressed: cart.items.isNotEmpty
-                  ? () {}
+                  ? () {
+                    Navigator.pushNamed(context, '/checkout');
+                  }
                   : null,
               ),
             )

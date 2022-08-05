@@ -27,7 +27,7 @@ class ProductDetailPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Image.asset(
+          Image.network(
             product.image,
             height: 300,
             fit: BoxFit.cover,
