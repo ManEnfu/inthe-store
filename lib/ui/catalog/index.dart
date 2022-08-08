@@ -11,30 +11,6 @@ class CatalogPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Product> products = [
-      Product(
-        id: "1",
-        name: "Shoe 1",
-        description: "This is a shoe",
-        price: 129000,
-        image: "assets/shoe1.png"
-      ),
-      Product(
-        id: "2",
-        name: "Shoe 2",
-        description: "This is another shoe",
-        price: 129000,
-        image: "assets/shoe2.jpg"
-      ),
-      Product(
-        id: "3",
-        name: "Shoe 3",
-        description: "This is also a shoe",
-        price: 129000,
-        image: "assets/shoe3.jpg"
-      ),
-    ];
-    
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -78,13 +54,6 @@ class CatalogPage extends StatelessWidget {
           );
         },
       )
-      // body: ListView.builder(
-      //   itemCount: products.length,
-      //   padding: const EdgeInsets.all(10),
-      //   itemBuilder: (BuildContext context, int index) {
-      //       return CatalogProductCard(product: products[index]);
-      //   },
-      // ),
     );
   }
 }

@@ -130,20 +130,20 @@ class ShoppingCartTotal extends StatelessWidget {
         builder: (BuildContext context, Cart cart, Widget? child) {
           return ListTile(
             title: const Text(
-                  'Total Price',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.black,
-                  )
-                ),
+              'Total Price',
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.black,
+              )
+            ),
             subtitle: Text(
-                  'Rp${cart.totalPrice}',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
+              'Rp${cart.totalPrice}',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
             trailing: ConstrainedBox(
               constraints: const BoxConstraints(
                 minWidth: 150,

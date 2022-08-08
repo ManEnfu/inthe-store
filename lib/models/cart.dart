@@ -56,4 +56,9 @@ class Cart extends ChangeNotifier {
   bool inCart(Product product) {
     return _items.any((item) => item.product == product);
   }
+
+  void clearCart() {
+    _items.clear();
+    notifyListeners();
+  }
 }
